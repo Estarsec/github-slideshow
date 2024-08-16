@@ -1,0 +1,22 @@
+ports are like doors and windows in the house, when status is close means no one can enter, opene means everyone can enter and filter
+port range 1- 1-1023 are the “well-known” ports we referred to earlier.
+1024-49152 are called registered ports. These ports have varying reliability when trying to figure out what service is running on them.
+49152–65535 are known as dynamic ports, so they are usually randomized within this range. Bittorrent is one example that uses this range
+
+Nmap -v to know if it's working to print the version of nmap
+normal nmap wihout sync the firewall will disable to allow ping cause it send request to ping but with sync does not send request it go direct to see if port is open,close or filter
+To perform sync scan it require sudo privirege or admin in windows
+sudo nmap -sS hostname // it's basic sys scan
+sudo nmap -sS -SU hostname // mix udp and tcp ports
+sudo nmap -sS -p 22 hostname //on specific port
+To scan the entire subnet -sS 192.231.129.0/24 multiple subnet -sS 192.231.128.0/24 10.1.0.0/24
+To automate scan 2 options -oG,oX or XML  nmap hostnname -oG /path/to/file.txt or hostname-oX /path/to/file.xm
+eg  sudo nmap -sS -oG --append-output scan.txt 192.168.0.0/1
+////////
+NSE script is nmap built in script languahe to scan anything runing on the network.
+if your found open port you can use nse script to know if the device is vulnerable to attack. can use vilners script which can be useful
+nmap –script vulners hostname
+**Because you can do all of this with a single command line tool, automation becomes fairly easy; run your desired script with something such as Task Manager for Windows, launchd for MacOS and cron for Linux.
+
+This should give you a good baseline as well for what devices on your network are doing. You may be surprised at what you find — especially if you’re not running firewalls on each device.**
+
